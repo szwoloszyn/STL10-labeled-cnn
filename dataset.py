@@ -63,9 +63,9 @@ def get_dataloaders(train=None, val=None, test=None, crop_scale=(0.6,1), batch_s
     if train is None or val is None or test is None:
         train, val, test = get_datasets(crop_scale)
     return(
-        DataLoader(train, batch_size=batch_size, shuffle=True, pin_memory=True, num_workers=6, prefetch_factor=6),
-        DataLoader(val, batch_size=batch_size, shuffle=False, pin_memory=True, num_workers=6),
-        DataLoader(test, batch_size=batch_size, shuffle=False, pin_memory=True, num_workers=6)
+        DataLoader(train, batch_size=batch_size, shuffle=True, pin_memory=True, num_workers=num_workers, prefetch_factor=6),
+        DataLoader(val, batch_size=batch_size, shuffle=False, pin_memory=True, num_workers=num_workers),
+        DataLoader(test, batch_size=batch_size, shuffle=False, pin_memory=True, num_workers=num_workers)
     )
     
 

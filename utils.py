@@ -83,7 +83,7 @@ def train(model, optimizer, criterion, train_loader, valid_loader, n_epochs, sch
     }
 
 
-def plot_training(history):
+def plot_training(history, filename=None):
     x = 0
     # Zabezpieczenie na wypadek użycia Early Stopping (n_epochs może być krótsze niż planowaliśmy)
     actual_epochs = len(history["train_loss"]) - x
@@ -113,6 +113,10 @@ def plot_training(history):
     ax2.legend()
 
     plt.tight_layout() # Zapobiega nakładaniu się napisów
+
+    if filename is not None:
+        plt.savefig(filename)
+        
     plt.show()
 
 
